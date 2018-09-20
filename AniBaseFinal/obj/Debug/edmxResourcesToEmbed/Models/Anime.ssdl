@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="AniBaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'AniBase.dbo.Anime' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Anime">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="TITLE" />
+      <PropertyRef Name="AIRING" />
+      <PropertyRef Name="DESCRIPTION" />
+      <PropertyRef Name="TYPE" />
+      <PropertyRef Name="EPISODES" />
+      <PropertyRef Name="SCORE" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="URL" Type="nvarchar(max)" />
+    <Property Name="IMGURL" Type="nvarchar(max)" />
+    <Property Name="TITLE" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="AIRING" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="DESCRIPTION" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="TYPE" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="EPISODES" Type="bigint" Nullable="false" />
+    <Property Name="SCORE" Type="decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="SDATE" Type="date" />
+    <Property Name="EDATE" Type="date" />
+  </EntityType>
+  <EntityContainer Name="AniBaseModelStoreContainer">
+    <EntitySet Name="Anime" EntityType="Self.Anime" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Anime].[ID] AS [ID], 
+    [Anime].[URL] AS [URL], 
+    [Anime].[IMGURL] AS [IMGURL], 
+    [Anime].[TITLE] AS [TITLE], 
+    [Anime].[AIRING] AS [AIRING], 
+    [Anime].[DESCRIPTION] AS [DESCRIPTION], 
+    [Anime].[TYPE] AS [TYPE], 
+    [Anime].[EPISODES] AS [EPISODES], 
+    [Anime].[SCORE] AS [SCORE], 
+    [Anime].[SDATE] AS [SDATE], 
+    [Anime].[EDATE] AS [EDATE]
+    FROM [dbo].[Anime] AS [Anime]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

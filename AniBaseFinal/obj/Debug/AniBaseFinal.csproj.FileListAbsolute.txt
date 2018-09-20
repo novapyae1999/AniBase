@@ -55,3 +55,7 @@ D:\UOG\webapplications\AniBaseFinal\AniBaseFinal\bin\Microsoft.Owin.Security.Mic
 D:\UOG\webapplications\AniBaseFinal\AniBaseFinal\obj\Debug\AniBaseFinal.dll
 D:\UOG\webapplications\AniBaseFinal\AniBaseFinal\obj\Debug\AniBaseFinal.pdb
 D:\UOG\webapplications\AniBaseFinal\AniBaseFinal\obj\Debug\AniBaseFinal.csprojResolveAssemblyReference.cache
+D:\UOG\webapplications\AniBaseFinal\AniBaseFinal\bin\PagedList.dll
+D:\UOG\webapplications\AniBaseFinal\AniBaseFinal\bin\PagedList.Mvc.dll
+D:\UOG\webapplications\AniBaseFinal\AniBaseFinal\bin\PagedList.xml
+D:\UOG\webapplications\AniBaseFinal\AniBaseFinal\bin\PagedList.Mvc.xml

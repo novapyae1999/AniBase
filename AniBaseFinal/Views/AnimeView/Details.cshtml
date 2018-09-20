@@ -1,0 +1,50 @@
+﻿@model AniBaseFinal.Models.Anime
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Anime</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.URL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.URL)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IMGURL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IMGURL)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SDATE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SDATE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EDATE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EDATE)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="AniBaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'AniBase.dbo.Anime' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Anime">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="TITLE" />
+            <PropertyRef Name="AIRING" />
+            <PropertyRef Name="DESCRIPTION" />
+            <PropertyRef Name="TYPE" />
+            <PropertyRef Name="EPISODES" />
+            <PropertyRef Name="SCORE" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="URL" Type="nvarchar(max)" />
+          <Property Name="IMGURL" Type="nvarchar(max)" />
+          <Property Name="TITLE" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="AIRING" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="DESCRIPTION" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="TYPE" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="EPISODES" Type="bigint" Nullable="false" />
+          <Property Name="SCORE" Type="decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="SDATE" Type="date" />
+          <Property Name="EDATE" Type="date" />
+        </EntityType>
+        <EntityContainer Name="AniBaseModelStoreContainer">
+          <EntitySet Name="Anime" EntityType="Self.Anime" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Anime].[ID] AS [ID], 
+    [Anime].[URL] AS [URL], 
+    [Anime].[IMGURL] AS [IMGURL], 
+    [Anime].[TITLE] AS [TITLE], 
+    [Anime].[AIRING] AS [AIRING], 
+    [Anime].[DESCRIPTION] AS [DESCRIPTION], 
+    [Anime].[TYPE] AS [TYPE], 
+    [Anime].[EPISODES] AS [EPISODES], 
+    [Anime].[SCORE] AS [SCORE], 
+    [Anime].[SDATE] AS [SDATE], 
+    [Anime].[EDATE] AS [EDATE]
+    FROM [dbo].[Anime] AS [Anime]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AniBaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Anime">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="TITLE" />
+            <PropertyRef Name="AIRING" />
+            <PropertyRef Name="DESCRIPTION" />
+            <PropertyRef Name="TYPE" />
+            <PropertyRef Name="EPISODES" />
+            <PropertyRef Name="SCORE" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="URL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IMGURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TITLE" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AIRING" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TYPE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EPISODES" Type="Int64" Nullable="false" />
+          <Property Name="SCORE" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="SDATE" Type="DateTime" Precision="0" />
+          <Property Name="EDATE" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityContainer Name="AniBaseEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Animes" EntityType="Self.Anime" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="AniBaseModelStoreContainer" CdmEntityContainer="AniBaseEntities">
+          <EntitySetMapping Name="Animes">
+            <EntityTypeMapping TypeName="AniBaseModel.Anime">
+              <MappingFragment StoreEntitySet="Anime">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="URL" ColumnName="URL" />
+                <ScalarProperty Name="IMGURL" ColumnName="IMGURL" />
+                <ScalarProperty Name="TITLE" ColumnName="TITLE" />
+                <ScalarProperty Name="AIRING" ColumnName="AIRING" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+                <ScalarProperty Name="TYPE" ColumnName="TYPE" />
+                <ScalarProperty Name="EPISODES" ColumnName="EPISODES" />
+                <ScalarProperty Name="SCORE" ColumnName="SCORE" />
+                <ScalarProperty Name="SDATE" ColumnName="SDATE" />
+                <ScalarProperty Name="EDATE" ColumnName="EDATE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="AniBaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Anime">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="TITLE" />
+      <PropertyRef Name="AIRING" />
+      <PropertyRef Name="DESCRIPTION" />
+      <PropertyRef Name="TYPE" />
+      <PropertyRef Name="EPISODES" />
+      <PropertyRef Name="SCORE" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="URL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IMGURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TITLE" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AIRING" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DESCRIPTION" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TYPE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="EPISODES" Type="Int64" Nullable="false" />
+    <Property Name="SCORE" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="SDATE" Type="DateTime" Precision="0" />
+    <Property Name="EDATE" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityContainer Name="AniBaseEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Animes" EntityType="Self.Anime" />
+  </EntityContainer>
+</Schema>

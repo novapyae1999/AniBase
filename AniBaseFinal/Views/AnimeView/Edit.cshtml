@@ -1,0 +1,78 @@
+﻿@model AniBaseFinal.Models.Anime
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Anime</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.ID)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.URL, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.URL)
+                @Html.ValidationMessageFor(model => model.URL)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.IMGURL, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.IMGURL)
+                @Html.ValidationMessageFor(model => model.IMGURL)
+            </div>
+        </div>
+
+        @Html.HiddenFor(model => model.TITLE)
+
+        @Html.HiddenFor(model => model.AIRING)
+
+        @Html.HiddenFor(model => model.DESCRIPTION)
+
+        @Html.HiddenFor(model => model.TYPE)
+
+        @Html.HiddenFor(model => model.EPISODES)
+
+        @Html.HiddenFor(model => model.SCORE)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.SDATE, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.SDATE)
+                @Html.ValidationMessageFor(model => model.SDATE)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.EDATE, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.EDATE)
+                @Html.ValidationMessageFor(model => model.EDATE)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
