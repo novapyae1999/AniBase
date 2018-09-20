@@ -20,6 +20,8 @@ D:\UOG\webapplications\AniBaseFinal\AniBaseFinal\bin\Microsoft.Owin.Security.Twi
 D:\UOG\webapplications\AniBaseFinal\AniBaseFinal\bin\Microsoft.Web.Infrastructure.dll
 D:\UOG\webapplications\AniBaseFinal\AniBaseFinal\bin\Newtonsoft.Json.dll
 D:\UOG\webapplications\AniBaseFinal\AniBaseFinal\bin\Owin.dll
+D:\UOG\webapplications\AniBaseFinal\AniBaseFinal\bin\PagedList.dll
+D:\UOG\webapplications\AniBaseFinal\AniBaseFinal\bin\PagedList.Mvc.dll
 D:\UOG\webapplications\AniBaseFinal\AniBaseFinal\bin\System.Web.Helpers.dll
 D:\UOG\webapplications\AniBaseFinal\AniBaseFinal\bin\System.Web.Mvc.dll
 D:\UOG\webapplications\AniBaseFinal\AniBaseFinal\bin\System.Web.Optimization.dll
@@ -33,6 +35,8 @@ D:\UOG\webapplications\AniBaseFinal\AniBaseFinal\bin\EntityFramework.SqlServer.x
 D:\UOG\webapplications\AniBaseFinal\AniBaseFinal\bin\Facebook.xml
 D:\UOG\webapplications\AniBaseFinal\AniBaseFinal\bin\Microsoft.Owin.xml
 D:\UOG\webapplications\AniBaseFinal\AniBaseFinal\bin\Microsoft.Owin.Security.xml
+D:\UOG\webapplications\AniBaseFinal\AniBaseFinal\bin\PagedList.xml
+D:\UOG\webapplications\AniBaseFinal\AniBaseFinal\bin\PagedList.Mvc.xml
 D:\UOG\webapplications\AniBaseFinal\AniBaseFinal\bin\System.Web.Helpers.xml
 D:\UOG\webapplications\AniBaseFinal\AniBaseFinal\bin\System.Web.Mvc.xml
 D:\UOG\webapplications\AniBaseFinal\AniBaseFinal\bin\System.Web.Optimization.xml
@@ -55,7 +59,3 @@ D:\UOG\webapplications\AniBaseFinal\AniBaseFinal\bin\Microsoft.Owin.Security.Mic
 D:\UOG\webapplications\AniBaseFinal\AniBaseFinal\obj\Debug\AniBaseFinal.dll
 D:\UOG\webapplications\AniBaseFinal\AniBaseFinal\obj\Debug\AniBaseFinal.pdb
 D:\UOG\webapplications\AniBaseFinal\AniBaseFinal\obj\Debug\AniBaseFinal.csprojResolveAssemblyReference.cache
-D:\UOG\webapplications\AniBaseFinal\AniBaseFinal\bin\PagedList.dll
-D:\UOG\webapplications\AniBaseFinal\AniBaseFinal\bin\PagedList.Mvc.dll
-D:\UOG\webapplications\AniBaseFinal\AniBaseFinal\bin\PagedList.xml
-D:\UOG\webapplications\AniBaseFinal\AniBaseFinal\bin\PagedList.Mvc.xml

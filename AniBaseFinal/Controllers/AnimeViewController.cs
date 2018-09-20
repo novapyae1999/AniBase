@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using AniBaseFinal.Models;
+using PagedList;
 
 namespace AniBaseFinal.Controllers
 {
@@ -15,32 +16,62 @@ namespace AniBaseFinal.Controllers
         private AniBaseEntities db = new AniBaseEntities();
 
         // GET: /AnimeView/
-        public ActionResult Index(string sortOrder, string searchString)
+        public ActionResult Index(string searching, string currentFilter,string sortOn, string orderBy, string
+pSortOn, int? page)
         {
-            ViewBag.NameSortPram = String.IsNullOrEmpty(sortOrder) ? "title_desc" : "";
-            ViewBag.TypeSortPram = sortOrder == "TYPE" ? "type_desc" : "TYPE";
+            ViewBag.CurrentSort = sortOn;
+             if (searching != null)
+   {
+      page = 1;
+   }
+   else
+   {
+      searching = currentFilter;
+   }
+
+   ViewBag.CurrentFilter = searching;
+
+            if (!string.IsNullOrWhiteSpace(sortOn) && !sortOn.Equals(pSortOn,
+StringComparison.CurrentCultureIgnoreCase))
+            {
+                orderBy = "asc";
+            }
+
             var anime = from a in db.Animes
                         select a;
-            if (!String.IsNullOrEmpty(searchString))
+            ViewBag.OrderBy = orderBy;
+            ViewBag.SortOn = sortOn;
+            ViewBag.Searching = searching;
+
+            switch (sortOn)
             {
-                anime = anime.Where(s => s.TITLE.Contains(searchString));
+                case "TITLE":
+                    if (orderBy.Equals("desc"))
+                    {
+                        anime = anime.OrderByDescending(a => a.TITLE);
+                    }
+                    else
+                    {
+                        anime = anime.OrderBy(a => a.TITLE);
+                    }
+                    break;
+                    case "TYPE":
+                    if (orderBy.Equals("desc"))
+                    {
+                         anime = anime.OrderByDescending(a => a.TYPE);
+                    }
+                    else
+                    {
+                         anime = anime.OrderBy(a => a.TYPE);
+                    }
+                    break;
             }
-            switch (sortOrder)
+
+            if(!String.IsNullOrEmpty(searching))
             {
-                case "title_desc":
-                    anime = anime.OrderByDescending(a => a.TITLE);
-                    break;
-                case"TYPE":
-                    anime = anime.OrderBy(a => a.TYPE);
-                    break;
-                case "type_desc":
-                    anime = anime.OrderByDescending(a => a.TYPE);
-                    break;
-                default:
-                    anime = anime.OrderBy(a => a.TITLE);
-                    break;
+                anime = anime.Where(a => a.TITLE.StartsWith(searching));
             }
-            return View(db.Animes.ToList());
+            return View(anime);
         }
 
         // GET: /AnimeView/Details/5

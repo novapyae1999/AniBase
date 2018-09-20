@@ -1,4 +1,5 @@
-﻿@model IEnumerable<AniBaseFinal.Models.Anime>
+﻿<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+@model IEnumerable<AniBaseFinal.Models.Anime>
 
 @{
     ViewBag.Title = "Index";
@@ -9,23 +10,21 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-@using (Html.BeginForm())
+@using (Html.BeginForm("Index", "AnimeView", FormMethod.Get))
 {
-    <p>
-        Find by name: @Html.TextBox("SearchString")
-        <input type="submit" value="Search" />
-    </p>
+    @Html.TextBox("searching")
+    <input type="submit" value="submit"/>
 }
 <table class="table">
     <tr>
         <th>
-            @Html.ActionLink("TITLE", "Index", new { sortOrder = ViewBag.NameSortParm })
+            @Html.ActionLink("TITLE", "Index", new { sortOn = "TITLE", orderBy = ViewBag.OrderBy, pSortOn = ViewBag.SortOn })
         </th>
         <th>
             @Html.DisplayNameFor(model => model.IMGURL)
         </th>
         <th>
-            @Html.ActionLink("TYPE", "Index", new { sortOrder = ViewBag.TitleSortParm })
+            @Html.ActionLink("TYPE", "Index", new { sortOn = "TYPE", orderBy = ViewBag.OrderBy, pSortOn = ViewBag.SortOn })
         </th>
         <th>
             @Html.DisplayNameFor(model => model.SCORE)
@@ -59,5 +58,4 @@
         </td>
     </tr>
 }
-
 </table>
