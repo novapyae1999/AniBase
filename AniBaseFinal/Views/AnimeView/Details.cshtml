@@ -2,6 +2,7 @@
 
 @{
     ViewBag.Title = "Details";
+    var image = "https://myanimelist.cdn-dena.com/images/anime/" + @Model.IMGURL;
 }
 
 <h2>Details</h2>
@@ -11,40 +12,40 @@
 	<hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.URL)
+            @Html.DisplayNameFor(model => model.TITLE)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.URL)
+            @Html.DisplayFor(model => model.TITLE)
         </dd>
 
         <dt>
             @Html.DisplayNameFor(model => model.IMGURL)
         </dt>
-
+        
         <dd>
-            @Html.DisplayFor(model => model.IMGURL)
+            <img src="@image" />
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.SDATE)
+            @Html.DisplayNameFor(model => model.DESCRIPTION)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.SDATE)
+            @Html.DisplayFor(model => model.DESCRIPTION)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.EDATE)
+            @Html.DisplayNameFor(model => model.EPISODES)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.EDATE)
+            @Html.DisplayFor(model => model.EPISODES)
         </dd>
 
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Edit", "Edit", new { ID = Model.ID }) |
     @Html.ActionLink("Back to List", "Index")
 </p>

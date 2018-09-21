@@ -4,18 +4,10 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="AniBaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'AniBase.dbo.Anime' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+    <Schema Namespace="AniBaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Anime">
           <Key>
             <PropertyRef Name="ID" />
-            <PropertyRef Name="TITLE" />
-            <PropertyRef Name="AIRING" />
-            <PropertyRef Name="DESCRIPTION" />
-            <PropertyRef Name="TYPE" />
-            <PropertyRef Name="EPISODES" />
-            <PropertyRef Name="SCORE" />
           </Key>
           <Property Name="ID" Type="int" Nullable="false" />
           <Property Name="URL" Type="nvarchar(max)" />
@@ -30,36 +22,15 @@ warning 6002: The table/view 'AniBase.dbo.Anime' does not have a primary key def
           <Property Name="EDATE" Type="date" />
         </EntityType>
         <EntityContainer Name="AniBaseModelStoreContainer">
-          <EntitySet Name="Anime" EntityType="Self.Anime" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [Anime].[ID] AS [ID], 
-    [Anime].[URL] AS [URL], 
-    [Anime].[IMGURL] AS [IMGURL], 
-    [Anime].[TITLE] AS [TITLE], 
-    [Anime].[AIRING] AS [AIRING], 
-    [Anime].[DESCRIPTION] AS [DESCRIPTION], 
-    [Anime].[TYPE] AS [TYPE], 
-    [Anime].[EPISODES] AS [EPISODES], 
-    [Anime].[SCORE] AS [SCORE], 
-    [Anime].[SDATE] AS [SDATE], 
-    [Anime].[EDATE] AS [EDATE]
-    FROM [dbo].[Anime] AS [Anime]</DefiningQuery>
-          </EntitySet>
+          <EntitySet Name="Anime" EntityType="Self.Anime" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="AniBaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Anime">
           <Key>
             <PropertyRef Name="ID" />
-            <PropertyRef Name="TITLE" />
-            <PropertyRef Name="AIRING" />
-            <PropertyRef Name="DESCRIPTION" />
-            <PropertyRef Name="TYPE" />
-            <PropertyRef Name="EPISODES" />
-            <PropertyRef Name="SCORE" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" />
           <Property Name="URL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />

@@ -3,12 +3,6 @@
   <EntityType Name="Anime">
     <Key>
       <PropertyRef Name="ID" />
-      <PropertyRef Name="TITLE" />
-      <PropertyRef Name="AIRING" />
-      <PropertyRef Name="DESCRIPTION" />
-      <PropertyRef Name="TYPE" />
-      <PropertyRef Name="EPISODES" />
-      <PropertyRef Name="SCORE" />
     </Key>
     <Property Name="ID" Type="Int32" Nullable="false" />
     <Property Name="URL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
