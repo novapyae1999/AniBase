@@ -15,9 +15,11 @@ namespace AniBaseFinal.Controllers
     [Authorize]
     public class AccountController : Controller
     {
+        ApplicationDbContext context;
         public AccountController()
             : this(new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext())))
         {
+            context = new ApplicationDbContext();
         }
 
         public AccountController(UserManager<ApplicationUser> userManager)
@@ -63,9 +65,11 @@ namespace AniBaseFinal.Controllers
 
         //
         // GET: /Account/Register
+        
         [AllowAnonymous]
         public ActionResult Register()
         {
+            ViewBag.Name = new SelectList(context.Roles.ToList(), "Name", "Name");
             return View();
         }
 
@@ -82,6 +86,7 @@ namespace AniBaseFinal.Controllers
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+                    await this.UserManager.AddToRoleAsync(user.Id, model.Name);
                     await SignInAsync(user, isPersistent: false);
                     return RedirectToAction("Index", "Home");
                 }
