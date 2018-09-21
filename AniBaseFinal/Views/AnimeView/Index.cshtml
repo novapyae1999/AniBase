@@ -5,6 +5,8 @@
     ViewBag.Title = "Index";
 }
 
+
+
 <h2>Index</h2>
 
 <p>
@@ -15,6 +17,9 @@
     @Html.TextBox("searching")
     <input type="submit" value="submit"/>
 }
+<div>
+
+</div>   
 <table class="table">
     <tr>
         <th>
@@ -36,13 +41,14 @@
     </tr>
 
 @foreach (var item in Model) {
+    var image = "https://myanimelist.cdn-dena.com/images/anime/" + @item.IMGURL;
+    
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.TITLE)
         </td>
         <td>
-            var image = "https://myanimelist.cdn-dena.com/images/anime/" + @item.IMGURL;
-            <img src="image" />
+            <img src="@image" />
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.TYPE)
