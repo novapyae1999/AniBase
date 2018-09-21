@@ -21,6 +21,7 @@
             @Html.ActionLink("TITLE", "Index", new { sortOn = "TITLE", orderBy = ViewBag.OrderBy, pSortOn = ViewBag.SortOn })
         </th>
         <th>
+            
             @Html.DisplayNameFor(model => model.IMGURL)
         </th>
         <th>
@@ -40,7 +41,8 @@
             @Html.DisplayFor(modelItem => item.TITLE)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.IMGURL)
+            var image = "https://myanimelist.cdn-dena.com/images/anime/" + @item.IMGURL;
+            <img src="image" />
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.TYPE)
