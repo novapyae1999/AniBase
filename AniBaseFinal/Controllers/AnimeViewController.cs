@@ -27,49 +27,51 @@ pSortOn, int? page)
         {
             ViewBag.CurrentSort = sortOn;
              if (searching != null)
-   {
-      page = 1;
-   }
-   else
-   {
-      searching = currentFilter;
-   }
+                {
+                page = 1;
+                }
+            else
+                {
+                searching = currentFilter;
+                }
 
-   ViewBag.CurrentFilter = searching;
+            ViewBag.CurrentFilter = searching;
 
             if (!string.IsNullOrWhiteSpace(sortOn) && !sortOn.Equals(pSortOn,
-StringComparison.CurrentCultureIgnoreCase))
-            {
-                orderBy = "asc";
-            }
+            StringComparison.CurrentCultureIgnoreCase))
+                {
+                    orderBy = "asc";
+                }
 
             var anime = from a in anb.Animes
                         select a;
-            ViewBag.OrderBy = orderBy;
-            ViewBag.SortOn = sortOn;
             ViewBag.Searching = searching;
-
+            ViewBag.TypeSortParm = sortOn == "TYPE" ? "Type_desc" : "TYPE";
+            ViewBag.TypeSortParm = sortOn == "TITLE" ? "Title_desc" : "TITLE";
             switch (sortOn)
             {
                 case "TITLE":
-                    if (orderBy.Equals("desc"))
-                    {
-                        anime = anime.OrderByDescending(a => a.TITLE);
-                    }
-                    else
-                    {
-                        anime = anime.OrderBy(a => a.TITLE);
-                    }
+
+                    anime = anime.OrderBy(a => a.TITLE);
+
                     break;
-                    case "TYPE":
-                    if (orderBy.Equals("desc"))
-                    {
-                         anime = anime.OrderByDescending(a => a.TYPE);
-                    }
-                    else
-                    {
-                         anime = anime.OrderBy(a => a.TYPE);
-                    }
+                case "Title_desc":
+
+                    anime = anime.OrderByDescending(a => a.TITLE);
+
+                    break;
+                case "TYPE":
+
+                    anime = anime.OrderBy(a => a.TYPE);
+
+                    break;
+                case "Type_desc":
+                    anime = anime.OrderByDescending(a => a.TYPE);
+                    break;
+                default:
+
+                    anime = anime.OrderBy(a => a.SCORE);
+
                     break;
             }
 
@@ -77,7 +79,10 @@ StringComparison.CurrentCultureIgnoreCase))
             {
                 anime = anime.Where(a => a.TITLE.StartsWith(searching));
             }
-            return View(anime);
+
+            int pageSize = 6;
+            int pageNumber = (page ?? 1);
+            return View(anime.ToPagedList(pageNumber, pageSize));
         }
 
         // GET: /AnimeView/Details/5

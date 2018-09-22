@@ -1,50 +1,10 @@
 ﻿@{
     ViewBag.Title = "Contact";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
 
-<header class="w3-container w3-center" style="background-image: url(images/background2.jpg); background-repeat: no-repeat; background-position: center; background-size: cover; padding:128px 16px">
+<header class="w3-container w3-center" style="background-image: url(/images/background2.jpg); background-repeat: no-repeat; background-position: center; background-size: cover; padding:128px 16px">
     <center>
-        <div class="container">
-            <form action="/action_page.php">
-                <div class="row">
-                    <div class="col-25">
-                        <label for="fname">First Name</label>
-                    </div>
-                    <div class="col-75">
-                        <input type="text" id="fname" name="firstname" placeholder="Your name..">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-25">
-                        <label for="lname">Last Name</label>
-                    </div>
-                    <div class="col-75">
-                        <input type="text" id="lname" name="lastname" placeholder="Your last name..">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-25">
-                        <label for="country">Gmail</label>
-                    </div>
-                    <div class="col-75">
-                        <input type="text" id="gmail" name="gmail" placeholder="Sender gamil..">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-25">
-                        <label for="subject">Feedback or New Animes</label>
-                    </div>
-                    <div class="col-75">
-                        <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
-                    </div>
-                </div>
-                <div class="row">
-                    <input type="submit" value="Submit">
-                </div>
-            </form>
-        </div>
+        <h1>CONTACT ME TO FOR FEEDBACK STUFF</h1>
     </center>
 </header>
 
@@ -53,7 +13,7 @@
     <div class="w3-content">
         <div class="row">
             <div class="column">
-                In case you wonder where I work. Here is a location
+                <h4>In case you wonder where I work. Here is a location</h4>
                 <div id="map" style="width:400px;height:400px;">
                     Map here
                 </div>
@@ -61,8 +21,8 @@
             <div class="column">
                 <p style="font-family: 'Baloo Bhai', cursive;">
                     --My Contact list-- <br>
-                    <i class="fa fa-google" style="font-size:36px"></i>Gmail: novapyae1999@gamil.com <br>
-                    <i class="material-icons" style="font-size:36px">place</i>Workshop Location: Myanmar, Yangon <br>
+                    <i class="fa fa-google" style="font-size:36px"></i>Gmail: novapyae1999@gmail.com <br>
+                    <i class="material-icons" style="font-size:36px">place</i>Workshop Location: PinPoint Location<br>
                     <i class="material-icons" style="font-size:36px">perm_phone_msg</i>
                     Phone : +95 9979512918
                 </p>
@@ -80,7 +40,6 @@
     <h1 class="w3-margin w3-xlarge">Quote of the day:<div id="quote"></div></h1>
 </div>
 
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCfQYMDZmPiwX39MM3jHU5IPj5FmAU23gE&callback=myMap"></script>
 <script>
     function myMap() {
         myCenter = new google.maps.LatLng(16.8056, 96.1355);
@@ -98,28 +57,6 @@
 
     }
 
-    function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-        infoWindow.setPosition(pos);
-        infoWindow.setContent(browserHasGeolocation ?
-                              'Error: The Geolocation service failed.' :
-                              'Error: Your browser doesn\'t support geolocation.');
-        infoWindow.open(map);
-    }
-
-    (function () {
-        var quotes = [
-          {
-              text: "Live a Life",
-          },
-          {
-              text: "Reach out for those who are in need",
-          },
-          {
-              text: "Tears don't judge the love you have for that person",
-          }
-        ];
-        var quote = quotes[Math.floor(Math.random() * quotes.length)];
-        document.getElementById("quote").innerHTML =
-          '<p>' + quote.text + '</p>';
-    })();
+    
 </script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCfQYMDZmPiwX39MM3jHU5IPj5FmAU23gE&callback=myMap"></script>

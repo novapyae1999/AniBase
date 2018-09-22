@@ -4,4 +4,60 @@
 <h2>@ViewBag.Title.</h2>
 <h3>@ViewBag.Message</h3>
 
-<p>Use this area to provide additional information.</p>
+<header class="w3-container w3-red w3-center" style="padding:128px 16px; background-image: url(../images/BackgroundFull.jpg); background-size: cover; ">
+    <h1 class="w3-margin w3-jumbo">About Us</h1>
+    <p class="w3-xlarge">All you need to know about AniBase</p>
+
+</header>
+
+<!-- First Grid -->
+<div class="w3-row-padding w3-padding-64 w3-container">
+    <div class="w3-content">
+        <div class="w3-twothird">
+            <h1>History & App's Goals</h1>
+        </div>
+
+        <div class="w3-third w3-center">
+            <h4>
+                <p style="font-family: 'Baloo Bhai', cursive; text-align: justify">
+                    This web project was originally for a school porject. With a help from outer sources and online sources
+                    I was able to make it come true. This app allows the viewers to see what are the latest animes and view
+                    them. While the admins can make changes to them.
+                </p>
+            </h4>
+        </div>
+    </div>
+</div>
+
+<!-- Second Grid -->
+<div class="w3-row-padding w3-light-grey w3-padding-64 w3-container">
+    <div class="w3-content">
+        <div class="w3-third w3-left" style="width: 400px;">
+            <h1>Speical Thanks : </h1>
+        </div>
+
+        <div class="w3-twothird w3-right" style="width: 400px;">
+            Teachers, tutors and my friends for the support. Espeially my family for understanding on spending most of my time in the room.
+        </div>
+    </div>
+</div>
+
+<div class="w3-container w3-black w3-center w3-opacity w3-padding-64">
+    <h1 class="w3-margin w3-xlarge">Quote of the day:<div id="quote"></div></h1>
+</div>
+<script>
+    var slideIndex = 0;
+    showSlides();
+
+    function showSlides() {
+        var i;
+        var slides = document.getElementsByClassName("myAniSlides");
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) { slideIndex = 1 }
+        slides[slideIndex - 1].style.display = "block";
+        setTimeout(showSlides, 2000); // Change image every 2 seconds
+    }
+</script>

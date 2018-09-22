@@ -11,6 +11,7 @@
     <h4>Create a new account.</h4>
     <hr />
     @Html.ValidationSummary()
+    
     <div class="form-group">
         @Html.LabelFor(m => m.UserName, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
@@ -34,13 +35,25 @@
     <div class="col-md-10">
         @Html.DropDownList("Name")
     </div>
+        
 </div>
-    <div class="form-group">
+    <div class="w3-left form-group">
         <div class="col-md-offset-2 col-md-10">
             <input type="submit" class="btn btn-default" value="Register" />
         </div>
     </div>
+ <div class="w3-right col-md-4">
+            <div>
+                <button>@Html.ActionLink("Login with facebook", "Facebook", "Home")</button>
+                <table>
+                    <tr><td>First Name:</td><td><b>@TempData["first_name"]</b></td></tr>
+                    <tr><td>Picture:</td><td><b><img src="@TempData["picture"]" /></b></td></tr>
+                </table>
+            </div>
+        </div>
 }
+
+
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

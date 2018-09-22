@@ -8,21 +8,30 @@ function myFunction() {
 }
 
 
-      (function() {
-      var quotes = [
-        {
+(function () {
+    var quotes = [
+      {
           text: "Live a Life",
-        },
-        {
+      },
+      {
           text: "Reach out for those who are in need",
-        },
-        {
+      },
+      {
           text: "Tears don't judge the love you have for that person",
-        }
-      ];
-      var quote = quotes[Math.floor(Math.random() * quotes.length)];
-      document.getElementById("quote").innerHTML =
-        '<p>' + quote.text + '</p>' ;
+      },
+      {
+          text: "Live to fight another day.",
+      },
+      {
+          text: "Doing something is more better than doing nothing.",
+      },
+      {
+          text: "It's ok to lose as long as you give it your best.",
+      }
+    ];
+    var quote = quotes[Math.floor(Math.random() * quotes.length)];
+    document.getElementById("quote").innerHTML =
+      '<p>' + quote.text + '</p>';
 })();
 
 var finished_rendering = function() {

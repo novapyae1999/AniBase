@@ -5,47 +5,79 @@
     var image = "https://myanimelist.cdn-dena.com/images/anime/" + @Model.IMGURL;
 }
 
-<h2>Details</h2>
+<header class="w3-container w3-red w3-center" style="padding:128px 16px; background-image: url(@image); background-size: ; ">
+    <h1>
+        <dl>
+            <dt>
+               ANIME @Html.DisplayNameFor(model => model.TITLE)
+            </dt>
 
-<div>
-    <h4>Anime</h4>
-	<hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.TITLE)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.TITLE)
+            </dd>
+        </dl>
+    </h1><br>
+</header>
 
-        <dd>
-            @Html.DisplayFor(model => model.TITLE)
-        </dd>
+<!-- First Grid -->
+<div class="w3-row-padding w3-padding-64 w3-container">
+    <div class="w3-content">
+        <div class="w3-twothird">
+            <dl>
+                <dt>
+                    @Html.DisplayNameFor(model => model.IMGURL)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.IMGURL)
-        </dt>
-        
-        <dd>
-            <img src="@image" />
-        </dd>
+                <dd>
+                    <img src="@image" />
+                </dd>
+            </dl>
+        </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.DESCRIPTION)
-        </dt>
+        <div class="w3-third w3-center">
+            <div>
+               <h1>Description</h1> <br />
+               <h3> @Html.DisplayFor(model => model.DESCRIPTION)</h3>
+            </div>
+            <br />
+            <div>
+                <h2>
+                    @Html.DisplayNameFor(model => model.EPISODES) :
 
-        <dd>
-            @Html.DisplayFor(model => model.DESCRIPTION)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.EPISODES)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.EPISODES)
-        </dd>
-
-    </dl>
+                    @Html.DisplayFor(model => model.EPISODES)
+                </h2>   
+            </div>
+        </div>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { ID = Model.ID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+
+<!-- Second Grid -->
+<div class="w3-row-padding w3-light-grey w3-padding-64 w3-container">
+    <div class="w3-content">
+        <div class="w3-third w3-center">
+                <h4>
+                    @Html.DisplayNameFor(model => model.AIRING) :
+
+                    @Html.DisplayFor(model => model.AIRING)
+                    <br />
+                    @Html.DisplayNameFor(model => model.SCORE) :
+
+                    @Html.DisplayFor(model => model.SCORE)
+                </h4>
+        </div>
+
+        <div class="w3-twothird">
+                
+        </div>
+    </div>
+</div>
+<div>
+    <center>
+        <button>@Html.ActionLink("Edit", "Edit", new { ID = Model.ID })</button>
+        <button> @Html.ActionLink("Back to List", "Index") </button>
+    </center>
+</div>
+<div class="w3-container w3-black w3-center w3-opacity w3-padding-64">
+    <h1 class="w3-margin w3-xlarge">Quote of the day:<div id="quote"></div></h1>
+</div>
+

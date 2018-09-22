@@ -3,61 +3,64 @@
 @{
     ViewBag.Title = "Edit";
 }
+<header class="w3-container w3-red w3-center" style="padding:128px 16px; background-image:url(/images/BackgroundFull.jpg); background-size: cover; ">
+    <h1>Re-edit the anime</h1>
+</header>
 
-<h2>Edit</h2>
-
-
-@using (Html.BeginForm())
+<!-- First Grid -->
+<div class="w3-row-padding w3-padding-64 w3-container" style="">
+    <div class="w3-content">
+        <div class="row">
+            @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
-        <h4>Anime</h4>
         <hr />
         @Html.ValidationSummary(true)
         @Html.HiddenFor(model => model.ID)
 
         <div class="form-group">
-            @Html.LabelFor(model => model.URL, new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.TITLE, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.URL)
-                @Html.ValidationMessageFor(model => model.URL)
+                @Html.EditorFor(model => model.TITLE)
+                @Html.ValidationMessageFor(model => model.TITLE)
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.IMGURL, new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.DESCRIPTION, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.IMGURL)
-                @Html.ValidationMessageFor(model => model.IMGURL)
+                @Html.EditorFor(model => model.DESCRIPTION)
+                @Html.ValidationMessageFor(model => model.DESCRIPTION)
             </div>
         </div>
 
-        @Html.HiddenFor(model => model.TITLE)
+        @Html.HiddenFor(model => model.URL)
 
         @Html.HiddenFor(model => model.AIRING)
 
-        @Html.HiddenFor(model => model.DESCRIPTION)
+        @Html.HiddenFor(model => model.IMGURL)
 
-        @Html.HiddenFor(model => model.TYPE)
+        @Html.HiddenFor(model => model.SDATE)
 
-        @Html.HiddenFor(model => model.EPISODES)
+        @Html.HiddenFor(model => model.EDATE)
 
         @Html.HiddenFor(model => model.SCORE)
 
         <div class="form-group">
-            @Html.LabelFor(model => model.SDATE, new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.TYPE, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.SDATE)
-                @Html.ValidationMessageFor(model => model.SDATE)
+                @Html.EditorFor(model => model.TYPE)
+                @Html.ValidationMessageFor(model => model.TYPE)
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.EDATE, new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.EPISODES, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.EDATE)
-                @Html.ValidationMessageFor(model => model.EDATE)
+                @Html.EditorFor(model => model.EPISODES)
+                @Html.ValidationMessageFor(model => model.EPISODES)
             </div>
         </div>
 
@@ -68,9 +71,21 @@
         </div>
     </div>
 }
+        </div>
+    </div>
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
+    <div class="w3-third w3-center">
+
+
+        <div>
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    </div>
+</div>
+</div>
+
+<div class="w3-container w3-black w3-center w3-opacity w3-padding-64">
+    <h1 class="w3-margin w3-xlarge">Quote of the day:<div id="quote"></div></h1>
 </div>
 
 @section Scripts {
